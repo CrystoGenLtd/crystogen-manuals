@@ -14,7 +14,7 @@ Configures how the intermolecular interaction energies from the net file are wei
 
 ## Interaction scalings
 
-A set of scaling entries is generated automatically based on the interaction groups found in the loaded net file. Each entry scales the energy contribution of one interaction group.
+A set of scaling entries (interaction energies) is generated automatically based on the interaction groups found in the loaded net file. Each entry scales the energy contribution of one interaction group.
 
 | Field | Description |
 |---|---|
