@@ -63,7 +63,7 @@ chmod +x path/to/bin/crystogen
 
 ### 4. Licence
 
-Place `CrystoGen.key` in the same directory as the `crystogen` binary. See [Licence key](../licence-key.md) for all configuration methods.
+Place `CrystoGen.key` in the directory from which you will run the simulation (your working directory). See [Licence key](../licence-key.md) for all configuration methods.
 
 ### 5. Run
 

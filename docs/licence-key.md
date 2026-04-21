@@ -5,19 +5,20 @@ CrystoGen is time-limited software. The licence key file (`CrystoGen.key`) is in
 The CLI binary tries to find the key in this order:
 
 1. The `CG_LICENSE_KEY` environment variable
-2. A file named `CrystoGen.key` in the same directory as the `crystogen` binary
+2. A file named `CrystoGen.key` in the working directory where the simulation is run
 
 The GUI sets `CG_LICENSE_KEY` automatically to `~/.crystogen/CrystoGen.key` whenever it launches a simulation subprocess, so no manual configuration is needed for GUI use after the initial setup.
 
 ---
 
-## Method 1 — Place the key next to the binary (simplest)
+## Method 1 — Place the key in the simulation directory (simplest)
 
-Copy `CrystoGen.key` into the same folder as the `crystogen` binary. The binary will find it automatically with no further configuration.
+Copy `CrystoGen.key` into the folder from which you run the simulation (i.e. the working directory when you invoke `crystogen`). The binary will find it automatically with no further configuration.
 
 ```
-bin/
-├── crystogen        (or crystogen.exe on Windows)
+my-simulation/
+├── addinput.txt
+├── input.txt
 └── CrystoGen.key
 ```
 

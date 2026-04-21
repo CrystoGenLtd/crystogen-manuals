@@ -80,9 +80,10 @@ The download folder also contains:
 === "GUI"
 
     1. Register at [crystogen.org](https://crystogen.org) and download the GUI file for your platform
-    2. Install — see the [installation guide](installation/windows.md) for your OS
-    3. On first launch, click **Update license** and navigate to `CrystoGen.key` from the download folder
-    4. See [Running CrystoGen](running.md) for a step-by-step guide
+    2. Install — see the installation guide for your OS: [Windows](installation/windows.md) · [macOS](installation/macos.md) · [Linux](installation/linux.md)
+    3. **First launch security warning** — Windows may show a SmartScreen dialog; macOS will block the app via Gatekeeper. See [Bypassing SmartScreen](installation/windows.md#bypassing-windows-smartscreen) or [Bypassing Gatekeeper](installation/macos.md#first-launch--bypassing-gatekeeper) for instructions.
+    4. On first launch, click **Update license** and navigate to `CrystoGen.key` from the download folder
+    5. See [Running CrystoGen](running.md) for a step-by-step guide
 
 === "CLI"
 
@@ -92,7 +93,7 @@ The download folder also contains:
     1. Register at [crystogen.org](https://crystogen.org) and download the CLI `.tar.gz` for your platform
     2. Extract it — the `crystogen` binary is in the `bin/` subdirectory
     3. Place `CrystoGen.key` in the same folder as the `crystogen` binary
-    4. See the [installation guide](installation/linux.md) for your OS and [Running CrystoGen](running.md) for invocation details
+    4. See the installation guide for your OS: [Windows](installation/windows.md) · [macOS](installation/macos.md) · [Linux](installation/linux.md), and [Running CrystoGen](running.md) for invocation details
 
 ## Licence
 

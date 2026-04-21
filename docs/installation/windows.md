@@ -12,11 +12,15 @@ Download `CrystoGen-windows-x86_64.zip`.
 
 Right-click the `.zip` file and select **Extract All**, then choose a destination folder (e.g. `C:\Program Files\CrystoGen` or your Desktop).
 
-### 3. First launch — licence
+### 3. First launch — bypass SmartScreen
+
+Windows may display a **"Windows protected your PC"** warning. See [Bypassing Windows SmartScreen](#bypassing-windows-smartscreen) below for instructions. On macOS, see [Bypassing Gatekeeper](macos.md#bypassing-gatekeeper) instead.
+
+### 4. First launch — licence
 
 On first launch, click **Update license** in the GUI and navigate to `CrystoGen.key` from the download folder.
 
-### 4. Run
+### 5. Run
 
 Open the extracted folder and double-click **CrystoGen.exe**.
 
@@ -46,11 +50,15 @@ tar -xzf crystogen-1.5.0-windows-x86_64.tar.gz
 
 The archive extracts to a versioned folder. The `crystogen.exe` binary is inside the `bin\` subdirectory alongside `cg-preprocess` and `cg-decrypt-key`.
 
-### 3. Licence
+### 3. First launch — bypass SmartScreen
 
-Place `CrystoGen.key` in the same directory as `crystogen.exe`. See [Licence key](../licence-key.md) for all configuration methods.
+Windows SmartScreen may block the binary on first run. See [Bypassing Windows SmartScreen](#bypassing-windows-smartscreen) below for instructions. On macOS, see [Bypassing Gatekeeper](macos.md#bypassing-gatekeeper) instead.
 
-### 4. Run
+### 4. Licence
+
+Place `CrystoGen.key` in the directory from which you will run the simulation (your working directory). See [Licence key](../licence-key.md) for all configuration methods.
+
+### 5. Run
 
 ```bat
 cd \path\to\simulation\folder
@@ -68,6 +76,8 @@ CrystoGen is not code-signed with a commercial certificate, so Windows SmartScre
 ### "Windows protected your PC" dialog
 
 If you see this dialog:
+
+![Windows SmartScreen "Windows protected your PC" warning](../img/windows_smartscreen.png)
 
 1. Click **More info** (below the warning text)
 2. Click **Run anyway**

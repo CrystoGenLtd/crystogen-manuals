@@ -24,7 +24,7 @@
 
     The `crystogen` CLI binary is a separate download included in the CrystoGen download folder (register at [crystogen.org](https://crystogen.org)). Extract the `.tar.gz` for your platform — the binary is in the `bin/` subdirectory. See the installation page for your OS for step-by-step instructions.
 
-    **Licence:** place `CrystoGen.key` in the same directory as the `crystogen` binary. See [Licence key](licence-key.md) for all configuration methods including the `CG_LICENSE_KEY` environment variable.
+    **Licence:** place `CrystoGen.key` in the directory from which you run the simulation (your working directory). See [Licence key](licence-key.md) for all configuration methods including the `CG_LICENSE_KEY` environment variable.
 
     **OpenMP:** for multi-core HPC nodes, use the `-openmp` variant of the CLI archive.
 
