@@ -1,6 +1,6 @@
 # CrystoGen
 
-CrystoGen is a Monte Carlo crystal-growth simulator for predicting crystal habit and nanoscale surface topography. It is available as a **GUI application** for interactive use and as a standalone **CLI binary** for scripted or HPC runs.
+CrystoGen (formerly CrystalGrower) is a Monte Carlo crystal-growth simulator for predicting crystal habit and nanoscale surface topography. It is available as a **GUI application** for interactive use and as a standalone **CLI binary** for scripted or HPC runs.
 
 CrystoGen is closed-source software with a time-limited licence. Licences and downloads are managed through [crystogen.org](https://crystogen.org). To access the software, **register via the form on [crystogen.org](https://crystogen.org)** to receive a link to the download folder.
 
@@ -81,7 +81,7 @@ The download folder also contains:
 
     1. Register at [crystogen.org](https://crystogen.org) and download the GUI file for your platform
     2. Install — see the installation guide for your OS: [Windows](installation/windows.md) · [macOS](installation/macos.md) · [Linux](installation/linux.md)
-    3. **First launch security warning** — Windows may show a SmartScreen dialog; macOS will block the app via Gatekeeper. See [Bypassing SmartScreen](installation/windows.md#bypassing-windows-smartscreen) or [Bypassing Gatekeeper](installation/macos.md#first-launch--bypassing-gatekeeper) for instructions.
+    3. **First launch security warning** — Windows may show a SmartScreen dialog; macOS will block the app via Gatekeeper. See [Bypassing SmartScreen](installation/windows.md#bypassing-windows-smartscreen) or [Bypassing Gatekeeper](installation/macos.md#bypassing-gatekeeper) for instructions.
     4. On first launch, click **Update license** and navigate to `CrystoGen.key` from the download folder
     5. See [Running CrystoGen](running.md) for a step-by-step guide
 

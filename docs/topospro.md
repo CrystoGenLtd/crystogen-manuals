@@ -3,6 +3,9 @@
 !!! warning "Being phased out"
     ToposPro Light is being phased out. Its functionality for generating interaction energy inputs for CrystoGen is superseded by [OCC](occ.md), which is cross-platform and actively maintained. New users should use OCC instead. ToposPro Light will continue to function for existing workflows but will not receive further updates.
 
+!!! note "CrystalGrower references"
+    Some buttons, menu items, and settings within ToposPro Light may still refer to CrystoGen as **CrystalGrower** — the previous name of the software. These refer to the same program.
+
 ToposPro Light is a stripped-down version of [ToposPro](https://topospro.com) bundled with CrystoGen for topology analysis on **Windows only**. It contains all the functionality needed to operate CrystoGen on Windows; it does not include features from the full ToposPro package.
 
 ---

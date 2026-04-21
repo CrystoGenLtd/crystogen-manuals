@@ -3,6 +3,7 @@ site_description: Installation and usage guide for CrystoGen
 site_url: https://crystogenltd.github.io/crystogen-manuals/
 repo_url: https://github.com/CrystoGenLtd/crystogen-manuals
 repo_name: CrystoGenLtd/crystogen-manuals
+copyright: Copyright &copy; 2026 CrystoGen Ltd
 
 theme:
   name: material
