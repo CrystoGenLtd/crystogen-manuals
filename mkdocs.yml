@@ -1,0 +1,57 @@
+site_name: CrystoGen
+site_description: Installation and usage guide for CrystoGen
+site_url: https://crystogenltd.github.io/crystogen-manuals/
+repo_url: https://github.com/CrystoGenLtd/crystogen-manuals
+repo_name: CrystoGenLtd/crystogen-manuals
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - content.tabs.link
+    - content.code.copy
+
+nav:
+  - Home: index.md
+  - Installation:
+    - Windows: installation/windows.md
+    - macOS: installation/macos.md
+    - Linux: installation/linux.md
+  - Running CrystoGen: running.md
+
+plugins:
+  - search
+  - with-pdf:
+      author: CrystoGen Ltd
+      cover_title: CrystoGen
+      cover_subtitle: Installation & Usage Guide
+      output_path: pdf/crystogen-manual.pdf
+      enabled_if_env: ENABLE_PDF_EXPORT
+      custom_template_path: docs/templates
+
+extra_css:
+  - pdf.css
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
+  - md_in_html

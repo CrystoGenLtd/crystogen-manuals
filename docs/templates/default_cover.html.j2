@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  #doc-cover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+  }
+  #doc-cover-logo {
+    max-width: 180px;
+    margin-bottom: 2rem;
+  }
+  #doc-cover hr {
+    width: 80%;
+    border: none;
+    border-top: 3px solid #e53935;
+    margin: 1.5rem 0;
+  }
+  #doc-cover h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0;
+    color: #1a1a1a;
+  }
+  #doc-cover h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #444;
+    margin: 1.5rem 0 0;
+  }
+  #doc-cover-meta {
+    position: absolute;
+    bottom: 3rem;
+    right: 3rem;
+    text-align: right;
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+<div id="doc-cover">
+  <img id="doc-cover-logo" src="../img/logo.png" alt="CrystoGen logo"
+       onerror="this.style.display='none'">
+  <h1>{{ title }}</h1>
+  <hr>
+  {% if subtitle %}
+  <h2>{{ subtitle }}</h2>
+  {% endif %}
+</div>
+<div id="doc-cover-meta">
+  {% if author %}<p>{{ author }}</p>{% endif %}
+  {% if copyright %}<p>{{ copyright }}</p>{% endif %}
+</div>
+</body>
+</html>

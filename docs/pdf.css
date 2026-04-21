@@ -1,0 +1,434 @@
+/* ==========================================================================
+   pdf.css
+   PDF-only overrides for mkdocs-with-pdf / WeasyPrint
+   Fixes:
+   - Better typography
+   - Better list indentation
+   - Proper admonition icons (Unicode fallback)
+   - Cleaner tables
+   - Better code blocks
+   - Prevent ugly page breaks
+   ========================================================================== */
+
+@media print {
+
+    /* ======================================================================
+       PAGE / TYPOGRAPHY
+       ====================================================================== */
+
+    @page {
+        size: A4;
+        margin: 18mm 16mm 18mm 16mm;
+    }
+
+    html,
+    body {
+        font-family: "DejaVu Sans", "Noto Sans", sans-serif;
+        font-size: 11pt;
+        line-height: 1.45;
+        color: #111;
+    }
+
+    .md-typeset {
+        font-size: 11pt;
+        line-height: 1.5;
+    }
+
+    .md-typeset p,
+    .md-typeset li {
+        orphans: 3;
+        widows: 3;
+    }
+
+    /* ======================================================================
+       HEADINGS
+       ====================================================================== */
+
+    .md-typeset h1,
+    .md-typeset h2,
+    .md-typeset h3,
+    .md-typeset h4,
+    .md-typeset h5,
+    .md-typeset h6 {
+        page-break-after: avoid;
+        break-after: avoid-page;
+        margin-top: 1.2em;
+        margin-bottom: 0.45em;
+        font-weight: 700;
+        line-height: 1.2;
+    }
+
+    .md-typeset h1 {
+        font-size: 22pt;
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 0.2em;
+    }
+
+    .md-typeset h2 {
+        font-size: 18pt;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 0.15em;
+    }
+
+    .md-typeset h3 {
+        font-size: 15pt;
+    }
+
+    .md-typeset h4 {
+        font-size: 13pt;
+    }
+
+    /* ======================================================================
+       LISTS
+       ====================================================================== */
+
+    .md-typeset ul,
+    .md-typeset ol {
+        margin-top: 0.35em;
+        margin-bottom: 0.7em;
+        margin-left: 0;
+        padding-left: 1.45em;
+    }
+
+    .md-typeset li {
+        margin-bottom: 0.2em;
+    }
+
+    /* ======================================================================
+       LINKS
+       ====================================================================== */
+
+    a {
+        color: #1565c0;
+        text-decoration: none;
+    }
+
+    /* ======================================================================
+       TABLES
+       ====================================================================== */
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1em 0;
+        font-size: 10pt;
+        page-break-inside: avoid;
+    }
+
+    th,
+    td {
+        border: 1px solid #ccc;
+        padding: 6px 8px;
+        vertical-align: top;
+    }
+
+    th {
+        background: #f3f3f3;
+        font-weight: 700;
+    }
+
+    tr {
+        page-break-inside: avoid;
+    }
+
+    /* ======================================================================
+       CODE BLOCKS
+       ====================================================================== */
+
+    pre,
+    code {
+        font-family: "DejaVu Sans Mono", "Courier New", monospace;
+        font-size: 9pt;
+    }
+
+    pre {
+        background: #f7f7f7;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 10px;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        overflow: visible;
+        page-break-inside: avoid;
+    }
+
+    code {
+        background: #f5f5f5;
+        padding: 0.1em 0.25em;
+        border-radius: 3px;
+    }
+
+    /* ======================================================================
+       BLOCKQUOTES
+       ====================================================================== */
+
+    blockquote {
+        border-left: 4px solid #ccc;
+        margin: 1em 0;
+        padding: 0.4em 1em;
+        color: #444;
+        background: #fafafa;
+        page-break-inside: avoid;
+    }
+
+    /* ======================================================================
+       IMAGES
+       ====================================================================== */
+
+    img,
+    svg {
+        max-width: 100%;
+        height: auto;
+        page-break-inside: avoid;
+    }
+
+    figure {
+        page-break-inside: avoid;
+    }
+
+    /* ======================================================================
+       ADMONITIONS
+       Material uses mask-image icons which WeasyPrint can't render.
+       Replace them with Unicode symbols.
+       ====================================================================== */
+
+    .md-typeset .admonition,
+    .md-typeset details {
+        page-break-inside: avoid;
+        margin: 1em 0;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+
+    .md-typeset .admonition-title,
+    .md-typeset summary {
+        font-weight: 700;
+        padding: 0.7em 1em;
+    }
+
+    .md-typeset .admonition-content,
+    .md-typeset .admonition > *:not(.admonition-title) {
+        padding: 0.75em 1em;
+    }
+
+    /* Kill Material mask icon and replace with text icon */
+    .md-typeset .admonition-title::before,
+    .md-typeset summary::before {
+        content: "";
+        background: none !important;
+        mask: none !important;
+        -webkit-mask: none !important;
+        width: auto !important;
+        height: auto !important;
+        display: inline-block !important;
+        margin-right: 0.45em;
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    /* NOTE */
+    .md-typeset .note,
+    .md-typeset .admonition.note {
+        border: 1px solid #90caf9;
+    }
+
+    .md-typeset .note > .admonition-title,
+    .md-typeset .note > summary {
+        background: #e3f2fd;
+    }
+
+    .md-typeset .note > .admonition-title::before,
+    .md-typeset .note > summary::before {
+        content: "✎";
+        color: #1565c0;
+    }
+
+    /* INFO */
+    .md-typeset .info {
+        border: 1px solid #80deea;
+    }
+
+    .md-typeset .info > .admonition-title,
+    .md-typeset .info > summary {
+        background: #e0f7fa;
+    }
+
+    .md-typeset .info > .admonition-title::before,
+    .md-typeset .info > summary::before {
+        content: "ℹ";
+        color: #00838f;
+    }
+
+    /* TIP / HINT */
+    .md-typeset .tip,
+    .md-typeset .hint {
+        border: 1px solid #80cbc4;
+    }
+
+    .md-typeset .tip > .admonition-title,
+    .md-typeset .hint > .admonition-title,
+    .md-typeset .tip > summary,
+    .md-typeset .hint > summary {
+        background: #e0f2f1;
+    }
+
+    .md-typeset .tip > .admonition-title::before,
+    .md-typeset .hint > .admonition-title::before,
+    .md-typeset .tip > summary::before,
+    .md-typeset .hint > summary::before {
+        content: "★";
+        color: #00695c;
+    }
+
+    /* WARNING */
+    .md-typeset .warning,
+    .md-typeset .caution,
+    .md-typeset .attention {
+        border: 1px solid #ffb74d;
+    }
+
+    .md-typeset .warning > .admonition-title,
+    .md-typeset .caution > .admonition-title,
+    .md-typeset .attention > .admonition-title,
+    .md-typeset .warning > summary,
+    .md-typeset .caution > summary,
+    .md-typeset .attention > summary {
+        background: #fff3e0;
+    }
+
+    .md-typeset .warning > .admonition-title::before,
+    .md-typeset .caution > .admonition-title::before,
+    .md-typeset .attention > .admonition-title::before,
+    .md-typeset .warning > summary::before,
+    .md-typeset .caution > summary::before,
+    .md-typeset .attention > summary::before {
+        content: "⚠";
+        color: #ef6c00;
+    }
+
+    /* DANGER / ERROR */
+    .md-typeset .danger,
+    .md-typeset .error {
+        border: 1px solid #ef9a9a;
+    }
+
+    .md-typeset .danger > .admonition-title,
+    .md-typeset .error > .admonition-title,
+    .md-typeset .danger > summary,
+    .md-typeset .error > summary {
+        background: #ffebee;
+    }
+
+    .md-typeset .danger > .admonition-title::before,
+    .md-typeset .error > .admonition-title::before,
+    .md-typeset .danger > summary::before,
+    .md-typeset .error > summary::before {
+        content: "✕";
+        color: #c62828;
+    }
+
+    /* SUCCESS */
+    .md-typeset .success,
+    .md-typeset .check,
+    .md-typeset .done {
+        border: 1px solid #a5d6a7;
+    }
+
+    .md-typeset .success > .admonition-title,
+    .md-typeset .check > .admonition-title,
+    .md-typeset .done > .admonition-title,
+    .md-typeset .success > summary,
+    .md-typeset .check > summary,
+    .md-typeset .done > summary {
+        background: #e8f5e9;
+    }
+
+    .md-typeset .success > .admonition-title::before,
+    .md-typeset .check > .admonition-title::before,
+    .md-typeset .done > .admonition-title::before,
+    .md-typeset .success > summary::before,
+    .md-typeset .check > summary::before,
+    .md-typeset .done > summary::before {
+        content: "✓";
+        color: #2e7d32;
+    }
+
+    /* QUESTION */
+    .md-typeset .question,
+    .md-typeset .faq,
+    .md-typeset .help {
+        border: 1px solid #c5e1a5;
+    }
+
+    .md-typeset .question > .admonition-title,
+    .md-typeset .faq > .admonition-title,
+    .md-typeset .help > .admonition-title,
+    .md-typeset .question > summary,
+    .md-typeset .faq > summary,
+    .md-typeset .help > summary {
+        background: #f1f8e9;
+    }
+
+    .md-typeset .question > .admonition-title::before,
+    .md-typeset .faq > .admonition-title::before,
+    .md-typeset .help > .admonition-title::before,
+    .md-typeset .question > summary::before,
+    .md-typeset .faq > summary::before,
+    .md-typeset .help > summary::before {
+        content: "?";
+        color: #558b2f;
+    }
+
+    /* QUOTE */
+    .md-typeset .quote,
+    .md-typeset .cite {
+        border: 1px solid #ddd;
+    }
+
+    .md-typeset .quote > .admonition-title,
+    .md-typeset .cite > .admonition-title,
+    .md-typeset .quote > summary,
+    .md-typeset .cite > summary {
+        background: #f5f5f5;
+    }
+
+    .md-typeset .quote > .admonition-title::before,
+    .md-typeset .cite > .admonition-title::before,
+    .md-typeset .quote > summary::before,
+    .md-typeset .cite > summary::before {
+        content: "❝";
+        color: #777;
+    }
+
+    /* ======================================================================
+       PAGE BREAK HELPERS
+       ====================================================================== */
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    table,
+    pre,
+    blockquote,
+    .admonition,
+    details {
+        page-break-inside: avoid;
+    }
+
+    /* ======================================================================
+       HIDE WEB-ONLY ELEMENTS
+       ====================================================================== */
+
+    .md-header,
+    .md-tabs,
+    .md-sidebar,
+    .md-footer,
+    .md-top,
+    .md-source,
+    .md-search {
+        display: none !important;
+    }
+}
