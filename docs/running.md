@@ -2,67 +2,111 @@
 
 ## Launching the application
 
-=== "Windows"
-    Double-click **CrystoGen.exe** in the extracted folder, or create a shortcut to it on your Desktop.
+=== "GUI"
 
-=== "macOS"
-    Open **Finder** → **Applications** → double-click **CrystoGen**.
+    === "Windows"
+        Double-click **CrystoGen.exe** in the extracted folder, or create a shortcut to it on your Desktop.
 
-    Alternatively, use Spotlight: press `⌘ Space`, type `CrystoGen`, press `Return`.
+    === "macOS"
+        Open **Finder** → **Applications** → double-click **CrystoGen**.
 
-=== "Linux"
-    ```bash
-    ./CrystoGen
-    ```
-    Or use the desktop shortcut if you created one during installation.
+        Alternatively, use Spotlight: press `⌘ Space`, type `CrystoGen`, press `Return`.
 
-Once open, the application shows a tabbed workspace and a [side menu](side-menu.md) on the left with file, settings, and tool actions.
+    === "Linux"
+        ```bash
+        ./CrystoGen
+        ```
+        Or use the desktop shortcut if you created one during installation.
+
+    Once open, the application shows a tabbed workspace and a [side menu](side-menu.md) on the left with file, settings, and tool actions.
+
+=== "Terminal"
+
+    The `crystogen` CLI binary is a separate download included in the CrystoGen download folder (register at [crystogen.org](https://crystogen.org)). Extract the `.tar.gz` for your platform — the binary is in the `bin/` subdirectory. See the installation page for your OS for step-by-step instructions.
+
+    **Licence:** place `CrystoGen.key` in the same directory as the `crystogen` binary. See [Licence key](licence-key.md) for all configuration methods including the `CG_LICENSE_KEY` environment variable.
+
+    **OpenMP:** for multi-core HPC nodes, use the `-openmp` variant of the CLI archive.
+
+    **HPC:** SLURM job templates for common workflows (solvent screen, growth rates, parameter sweeps) are included in the **HPC_scripts** folder of the download.
 
 ---
 
-## Running CrystoGen
+## Running a simulation
 
-CrystoGen simulates crystal growth using the interaction energies (from [OCC](occ.md) or manual entries).
+=== "GUI"
 
-### Required inputs
+    CrystoGen simulates crystal growth using the interaction energies (from [OCC](occ.md) or manual entries).
 
-| Input | Description |
-|---|---|
-| Structure file | `_cg.txt` file — auto-populated after OCC, or set manually |
-| Net file / folder | Single `_net.txt` file, or a folder of net files for multi-solvent runs |
+    ### Required inputs
 
-### Steps
+    | Input | Description |
+    |---|---|
+    | Structure file | `_cg.txt` file — auto-populated after OCC, or set manually |
+    | Net file / folder | Single `_net.txt` file, or a folder of net files for multi-solvent runs |
 
-1. Switch to any CrystoGen tab (not the Energy prediction tab).
-2. Confirm the **Structure file** and **Net file** paths are correct (auto-filled if you ran OCC first).
-3. Set the core simulation parameters:
-    - **Temperature** (°C)
-    - **Number of iterations**
-    - **∆µ** supersaturation values (kcal/mol)
-    - **Simulation mode** — `normal`, `diffusion`, `nucleation`, `surface`, etc.
-4. Optionally configure your **[parameters](tabs/index.md)**: for any parameter marked with a vary option, set a start value, end value, and step size. The GUI generates and runs all combinations automatically, placing each in its own numbered subfolder.
-5. Click **Run CG**.
+    ### Steps
 
-The simulation runs in a background thread so the GUI remains responsive. Progress is streamed to the log panel and you can stop a run at any time with **Stop**.
+    1. Switch to any CrystoGen tab (not the Energy prediction tab).
+    2. Confirm the **Structure file** and **Net file** paths are correct (auto-filled if you ran OCC first).
+    3. Set the core simulation parameters:
+        - **Temperature** (°C)
+        - **Number of iterations**
+        - **∆µ** supersaturation values (kcal/mol)
+        - **Simulation mode** — `normal`, `diffusion`, `nucleation`, `surface`, etc.
+    4. Optionally configure your **[parameters](tabs/index.md)**: for any parameter marked with a vary option, set a start value, end value, and step size. The GUI generates and runs all combinations automatically, placing each in its own numbered subfolder.
+    5. Click **Run CG**.
 
-### Output folder structure
+    The simulation runs in a background thread so the GUI remains responsive. Progress is streamed to the log panel and you can stop a run at any time with **Stop**.
 
-Each run creates a timestamped folder:
+    ### Output folder structure
 
-```
-<output_path>/
-└── YYYYMMDD_HHMMSS/
-    ├── GUI_simulation_data.txt      (full form state snapshot)
-    ├── YYYYMMDD_HHMMSS_summary.csv  (varied parameter combinations)
-    ├── <prefix>_1/                  (simulation 1)
-    │   ├── input.txt
-    │   ├── addinput.txt
-    │   ├── net.txt
-    │   ├── CrystoGen_log.csv
-    │   └── ...
-    ├── <prefix>_2/
-    └── ...
-```
+    Each run creates a timestamped folder:
+
+    ```
+    <output_path>/
+    └── YYYYMMDD_HHMMSS/
+        ├── GUI_simulation_data.txt      (full form state snapshot)
+        ├── YYYYMMDD_HHMMSS_summary.csv  (varied parameter combinations)
+        ├── <prefix>_1/                  (simulation 1)
+        │   ├── input.txt
+        │   ├── addinput.txt
+        │   ├── net.txt
+        │   ├── CrystoGen_log.csv
+        │   └── ...
+        ├── <prefix>_2/
+        └── ...
+    ```
+
+=== "Terminal"
+
+    The `crystogen` binary reads its main configuration from `input.txt` in the **working directory**, and receives additional mode-specific parameters via **stdin** from `addinput.txt`.
+
+    ### Required files
+
+    | File | Description |
+    |---|---|
+    | `input.txt` | 27-line configuration file — one value per line |
+    | `addinput.txt` | Mode-dependent additional parameters piped via stdin |
+    | Structure file | `_cg.txt` file referenced in `input.txt` line 6 |
+    | Net / tile file | Referenced by the structure file |
+
+    ### Invocation
+
+    Place `input.txt` and `addinput.txt` in the same folder and run from that folder:
+
+    === "Windows"
+        ```bat
+        \path\to\bin\crystogen.exe < addinput.txt
+        ```
+
+    === "macOS / Linux"
+        ```bash
+        cd /path/to/simulation/folder
+        /path/to/bin/crystogen < addinput.txt
+        ```
+
+    Output files are written to the directory specified in `input.txt` line 1. See [Input files](input-files.md) for the full format of `input.txt` and `addinput.txt`.
 
 ---
 
@@ -111,3 +155,17 @@ GDK_SCALE=1 ./CrystoGen
 ### Performance issues
 
 CrystoGen bundles its own Python runtime. Startup may take a few seconds on first launch while the OS loads the bundled libraries — this is normal.
+
+### Terminal: "Permission denied" or "Executable not found"
+
+Ensure the `crystogen` binary is executable:
+
+```bash
+chmod +x /path/to/crystogen
+```
+
+Check that `CG_LICENSE_KEY` points to a valid key file:
+
+```bash
+ls ~/.crystogen/CrystoGen.key
+```

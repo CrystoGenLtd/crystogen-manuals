@@ -33,7 +33,11 @@ nav:
     - macOS: installation/macos.md
     - Linux: installation/linux.md
   - Running CrystoGen: running.md
+  - Input files: input-files.md
+  - Licence key: licence-key.md
   - Running OCC: occ.md
+  - ToposPro Light: topospro.md
+  - CG Visualiser: cgvisualiser.md
   - Side menu: side-menu.md
   - GUI Tabs:
     - Overview: tabs/index.md
@@ -52,6 +56,9 @@ nav:
     - Surface: tabs/surface.md
     - Seed engineering: tabs/seed-engineering.md
     - Excess supersaturation: tabs/excess-supersaturation.md
+
+hooks:
+  - docs/hooks.py
 
 plugins:
   - search
