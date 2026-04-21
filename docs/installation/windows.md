@@ -25,7 +25,7 @@ If you see this dialog:
 1. Click **More info** (below the warning text)
 2. Click **Run anyway**
 
-![SmartScreen dialog](../img/windows-smartscreen.png){ loading=lazy }
+<!-- ![SmartScreen dialog](../img/windows-smartscreen.png){ loading=lazy } -->
 
 !!! info "Why does this happen?"
     SmartScreen flags executables that are new or have low download counts. This is expected for self-distributed software without a paid code-signing certificate. The application is safe to run.
