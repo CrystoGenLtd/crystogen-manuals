@@ -16,48 +16,13 @@
     ```
     Or use the desktop shortcut if you created one during installation.
 
----
-
-## Running OCC
-
-OCC (Open Cascade) calculates the intermolecular interaction energies that CrystoGen uses as input. This step is only required if you do not already have pre-calculated `.txt` energy files.
-
-### Required inputs
-
-| Input | Description |
-|---|---|
-| CIF file | Crystal structure in CIF format |
-| OCC executable | Path to the `occ` binary — auto-discovered from `PATH` if available |
-| Basis path | Directory containing the OCC basis set files |
-
-### Steps
-
-1. Open the **Energy prediction** tab in the GUI.
-2. Load your CIF file using the file browser.
-3. Select one or more **solvents** from the list. Each selected solvent produces a separate `_net.txt` interaction-energy file.
-4. Configure the calculation parameters as needed:
-    - **Energy model** — `ce-b3lyp` (default), `ce-1p`, or `gfn2-xtb`
-    - **Maximum radius** — cutoff distance for interactions (Å, default 30.0)
-    - **CG radius** — radius used by CrystoGen (Å, default 3.8)
-    - **Threads** — number of parallel threads (1–256, default 1)
-5. Click **Run OCC**.
-
-Output is streamed live to the log panel. A `.stdout` file is saved alongside the output for each solvent.
-
-### Output files
-
-When the calculation finishes, two types of files are written for each solvent:
-
-- `<name>_cg.txt` — crystal structure file used by CrystoGen
-- `<name>_<solvent>_net.txt` — interaction energies for that solvent
-
-If you selected multiple solvents, the net files are collected inside a `NETs/` subfolder. On completion, the GUI automatically populates the CrystoGen structure and net file fields so you can proceed directly to the next step.
+Once open, the application shows a tabbed workspace and a [side menu](side-menu.md) on the left with file, settings, and tool actions.
 
 ---
 
 ## Running CrystoGen
 
-CrystoGen simulates crystal growth using the interaction energies (from OCC or manual entries).
+CrystoGen simulates crystal growth using the interaction energies (from [OCC](occ.md) or manual entries).
 
 ### Required inputs
 
@@ -75,7 +40,7 @@ CrystoGen simulates crystal growth using the interaction energies (from OCC or m
     - **Number of iterations**
     - **∆µ** supersaturation values (kcal/mol)
     - **Simulation mode** — `normal`, `diffusion`, `nucleation`, `surface`, etc.
-4. Optionally configure your **parameters**: for any parameter marked with a vary option, set a start value, end value, and step size. The GUI generates and runs all combinations automatically, placing each in its own numbered subfolder.
+4. Optionally configure your **[parameters](tabs/index.md)**: for any parameter marked with a vary option, set a start value, end value, and step size. The GUI generates and runs all combinations automatically, placing each in its own numbered subfolder.
 5. Click **Run CG**.
 
 The simulation runs in a background thread so the GUI remains responsive. Progress is streamed to the log panel and you can stop a run at any time with **Stop**.

@@ -30,6 +30,10 @@ Get the latest release from the [GitHub Releases page](https://github.com/Crysto
     2. Run `./CrystoGen`
     3. See [Linux installation](installation/linux.md) for dependencies
 
+## Interface
+
+Once installed, the application opens with a tabbed workspace and a [side menu](side-menu.md) on the left. The side menu gives access to file open/save, defaults, advanced options, log management, and the license. See [Running CrystoGen](running.md) for a step-by-step guide.
+
 ## System Requirements
 
 | | Minimum |

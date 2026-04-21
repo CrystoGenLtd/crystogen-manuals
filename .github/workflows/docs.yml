@@ -38,6 +38,9 @@ jobs:
         env:
           ENABLE_PDF_EXPORT: 1
 
+      - name: Move PDF to repo root
+        run: mv site/pdf/crystogen-manual.pdf crystogen-manual.pdf
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site/

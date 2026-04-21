@@ -33,6 +33,25 @@ nav:
     - macOS: installation/macos.md
     - Linux: installation/linux.md
   - Running CrystoGen: running.md
+  - Running OCC: occ.md
+  - Side menu: side-menu.md
+  - GUI Tabs:
+    - Overview: tabs/index.md
+    - Energy prediction: tabs/energy-prediction.md
+    - Structure options: tabs/structure-options.md
+    - Simulation options: tabs/simulation-options.md
+    - Supersaturation profile: tabs/supersaturation.md
+    - Crystal colouring: tabs/crystal-colouring.md
+    - Net options: tabs/net-options.md
+    - Tile options: tabs/tile-options.md
+    - Screw dislocations: tabs/screw-dislocations.md
+    - Screw stress: tabs/screw-stress.md
+    - Growth modifier: tabs/growth-modifier.md
+    - Diffusion: tabs/diffusion.md
+    - Nucleation: tabs/nucleation.md
+    - Surface: tabs/surface.md
+    - Seed engineering: tabs/seed-engineering.md
+    - Excess supersaturation: tabs/excess-supersaturation.md
 
 plugins:
   - search
