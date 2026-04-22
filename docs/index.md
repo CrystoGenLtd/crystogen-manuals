@@ -2,8 +2,6 @@
 
 CrystoGen (formerly CrystalGrower) is a Monte Carlo crystal-growth simulator for predicting crystal habit and nanoscale surface topography. It is available as a **GUI application** for interactive use and as a standalone **CLI binary** for scripted or HPC runs.
 
-CrystoGen is closed-source software with a time-limited licence. Licences and downloads are managed through [crystogen.org](https://crystogen.org). To access the software, **register via the form on [crystogen.org](https://crystogen.org)** to receive a link to the download folder.
-
 ## What's included
 
 Each download folder contains platform-specific subfolders (`Windows`, `Linux`, `Mac-ARM`, `Mac-Intel`). Every subfolder includes:
@@ -97,7 +95,7 @@ The download folder also contains:
 
 ## Licence
 
-CrystoGen uses a time-limited licence. When a licence expires the software will cease to function. Licences can be renewed at [crystogen.org](https://crystogen.org).
+CrystoGen is closed-source software with a time-limited licence. Licences and downloads are managed through [crystogen.org](https://crystogen.org). To access the software, **register via the form on [crystogen.org](https://crystogen.org)** to receive a link to the download folder.
 
 ## System requirements
 

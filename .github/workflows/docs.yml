@@ -33,8 +33,14 @@ jobs:
       - name: Install MkDocs
         run: pip install mkdocs-material mkdocs-with-pdf
 
-      - name: Build docs and PDF
+      - name: Build web docs
         run: mkdocs build --strict
+
+      - name: Build PDF
+        run: |
+          mkdocs build --strict --site-dir site_pdf_build
+          mkdir -p site/pdf
+          cp site_pdf_build/pdf/crystogen-manual.pdf site/pdf/crystogen-manual.pdf
         env:
           ENABLE_PDF_EXPORT: 1
 
