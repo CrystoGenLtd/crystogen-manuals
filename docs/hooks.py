@@ -21,6 +21,14 @@ def on_page_content(html, page, config, files):
 
     soup = BeautifulSoup(html, "html.parser")
 
+    # Remove PDF download buttons — self-referential inside the PDF and
+    # unresolvable by mkdocs-with-pdf's link checker.
+    for a in soup.select("a.md-button[href$='.pdf']"):
+        parent = a.parent
+        a.decompose()
+        if parent and not parent.get_text(strip=True):
+            parent.decompose()
+
     all_tab_sets = soup.select(".tabbed-set")
 
     # Process innermost tab sets first so inner restructuring is done before

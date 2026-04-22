@@ -92,6 +92,22 @@ Some antivirus tools flag PyInstaller-packaged executables. If the GUI or CLI bi
 1. Restore it from quarantine
 2. Add an exclusion for the CrystoGen folder
 
+### "This content is blocked" dialog
+
+On managed devices (e.g. university or institutional computers), Windows Security may block the executables that the GUI launches internally, showing this dialog:
+
+![Windows Security "This content is blocked" dialog](../img/windows_blockedcontents.png)
+
+This can appear up to three times — once for each executable the GUI invokes:
+
+| When | Executable |
+|---|---|
+| On open | `cg-decrypt-key` (licence validation) |
+| On loading a structure file | `cg-preprocess` |
+| On running a calculation | `crystogen` |
+
+Click **Unblock** each time the dialog appears. If it keeps reappearing, add an exclusion for the CrystoGen folder in Windows Security settings.
+
 ---
 
 ## ToposPro Light

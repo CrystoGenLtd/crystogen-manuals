@@ -35,9 +35,8 @@ jobs:
 
       - name: Build PDF
         run: |
-          mkdir -p docs/pdf
-          touch docs/pdf/crystogen-manual.pdf
           mkdocs build --strict --site-dir site_pdf_build
+          mkdir -p docs/pdf
           cp site_pdf_build/pdf/crystogen-manual.pdf docs/pdf/crystogen-manual.pdf
         env:
           ENABLE_PDF_EXPORT: 1
