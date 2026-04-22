@@ -10,8 +10,8 @@ Not sure which you have? Click  → **About This Mac**. Look for "Chip" (Apple S
 
 | Mac type | File |
 |---|---|
-| Apple Silicon (M1/M2/M3/M4) | `CrystoGen_GUI-macos-arm64.dmg` |
-| Intel | `CrystoGen_GUI-macos-x86_64.dmg` |
+| Apple Silicon (M1/M2/M3/M4) | `CrystoGen-GUI-macos-arm64.dmg` |
+| Intel | `CrystoGen-GUI-macos-x86_64.dmg` |
 
 ### 2. Install
 
