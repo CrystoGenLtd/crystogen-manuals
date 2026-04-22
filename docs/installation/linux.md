@@ -6,19 +6,19 @@ Download files from the **Linux** folder of the download (register at [crystogen
 
 ### 1. Download
 
-Download `CrystoGen-linux-x86_64.tar.gz`.
+Download `CrystoGen_GUI-linux-x86_64.tar.gz`.
 
 ### 2. Extract
 
 ```bash
-tar -xzf CrystoGen-linux-x86_64.tar.gz
-cd CrystoGen-linux-x86_64
+tar -xzf CrystoGen_GUI-linux-x86_64.tar.gz
+cd CrystoGen_GUI-linux-x86_64
 ```
 
 ### 3. Make executable (if needed)
 
 ```bash
-chmod +x CrystoGen
+chmod +x CrystoGen_GUI
 ```
 
 ### 4. First launch — licence
@@ -28,7 +28,7 @@ On first launch, click **Update license** in the GUI and navigate to `CrystoGen.
 ### 5. Run
 
 ```bash
-./CrystoGen
+./CrystoGen_GUI
 ```
 
 ---
@@ -106,7 +106,7 @@ Some security tools flag PyInstaller-packaged executables as false positives. If
 ## Optional: Add GUI to PATH
 
 ```bash
-sudo ln -s /path/to/CrystoGen-linux-x86_64/CrystoGen /usr/local/bin/crystogen
+sudo ln -s /path/to/CrystoGen_GUI-linux-x86_64/CrystoGen_GUI /usr/local/bin/crystogen
 ```
 
 ## Optional: Desktop shortcut
@@ -116,8 +116,8 @@ Create `/home/$USER/.local/share/applications/crystogen.desktop`:
 ```ini
 [Desktop Entry]
 Name=CrystoGen
-Exec=/path/to/CrystoGen-linux-x86_64/CrystoGen
-Icon=/path/to/CrystoGen-linux-x86_64/cg_logo.png
+Exec=/path/to/CrystoGen_GUI-linux-x86_64/CrystoGen_GUI
+Icon=/path/to/CrystoGen_GUI-linux-x86_64/cg_logo.png
 Type=Application
 Categories=Science;
 ```

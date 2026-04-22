@@ -6,7 +6,7 @@ Download files from the **Windows** folder of the download (register at [crystog
 
 ### 1. Download
 
-Download `CrystoGen-windows-x86_64.zip`.
+Download `CrystoGen_GUI-windows-x86_64.zip`.
 
 ### 2. Extract
 
@@ -22,7 +22,7 @@ On first launch, click **Update license** in the GUI and navigate to `CrystoGen.
 
 ### 5. Run
 
-Open the extracted folder and double-click **CrystoGen.exe**.
+Open the extracted folder and double-click **CrystoGen_GUI.exe**.
 
 ---
 
