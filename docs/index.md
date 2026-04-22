@@ -105,3 +105,9 @@ CrystoGen is closed-source software with a time-limited licence. Licences and do
 | Architecture | x86_64 (all platforms), arm64 (macOS only) |
 | RAM | 4 GB |
 | Disk | 200 MB free |
+
+## Offline manual
+
+A PDF version of this documentation is generated automatically from the same source and kept in sync with the site.
+
+[Download manual (PDF)](pdf/crystogen-manual.pdf){ .md-button download }
