@@ -42,9 +42,7 @@ jobs:
           ENABLE_PDF_EXPORT: 1 
 
       - name: Build web docs
-        run: mkdocs build --strict
-        env:
-          ENABLE_PDF_EXPORT: 0
+        run: mkdocs build --strict --config-file mkdocs.web.yml
 
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v4
