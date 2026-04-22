@@ -33,16 +33,16 @@ jobs:
       - name: Install MkDocs
         run: pip install mkdocs-material mkdocs-with-pdf
 
-      - name: Build web docs
-        run: mkdocs build --strict
-
       - name: Build PDF
         run: |
           mkdocs build --strict --site-dir site_pdf_build
-          mkdir -p site/pdf
-          cp site_pdf_build/pdf/crystogen-manual.pdf site/pdf/crystogen-manual.pdf
+          mkdir -p docs/pdf
+          cp site_pdf_build/pdf/crystogen-manual.pdf docs/pdf/crystogen-manual.pdf
         env:
           ENABLE_PDF_EXPORT: 1
+
+      - name: Build web docs
+        run: mkdocs build --strict
 
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v4
