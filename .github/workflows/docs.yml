@@ -39,10 +39,12 @@ jobs:
           mkdir -p docs/pdf
           cp site_pdf_build/pdf/crystogen-manual.pdf docs/pdf/crystogen-manual.pdf
         env:
-          ENABLE_PDF_EXPORT: 1
+          ENABLE_PDF_EXPORT: 1 
 
       - name: Build web docs
         run: mkdocs build --strict
+        env:
+          ENABLE_PDF_EXPORT: 0
 
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v4
